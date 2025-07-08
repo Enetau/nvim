@@ -1,13 +1,19 @@
-local function escape(str)
-	local escape_chars = [[;,."|\]]
-	return vim.fn.escape(str, escape_chars)
-end
-
-local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
-local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
-local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
-local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
-vim.opt.langmap = vim.fn.join({
-	escape(ru_shift) .. ";" .. escape(en_shift),
-	escape(ru) .. ";" .. escape(en),
-}, ",")
+local opt=vim.opt
+opt.confirm=true
+opt.cursorline=true
+opt.expandtab=true
+opt.shiftround=true
+opt.shiftwidth=2
+opt.tabstop=2
+opt.fillchars={
+  foldopen="",
+  foldclose="",
+  fold=" ",
+  foldsep=" ",
+  diff="╱",
+  eob=" ",
+}
+opt.list=true
+opt.mouse="a"
+opt.number=true
+opt.relativenumber=true
